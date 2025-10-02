@@ -11,19 +11,15 @@
             padding: 20px;
             background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
-        }
-        p {
-            font-size: 1.2em;
-        }
+        h1 { color: #333; }
+        p { font-size: 1.2em; }
+    </style>
 </head>
 <body>
     <h1>Welcome to My Website on AWS EC2 Instance</h1>
     <p>This is Oluwatosin's Altschool Examination project hosted on an AWS EC2 instance.</p>
-    <p>Feel free to explore and learn more about AWS and web hosting!</p>
-    <p>This page is served from <b><?php echo gethostname(); ?></b></p>
-    <p>Current date and time is: <b><?php echo date('Y-m-d H:i:s'); ?></b></p>
-    <p>Server IP address is: <b><?php echo $_SERVER['SERVER_ADDR']; ?></b></p>
+    <p>This page is served from <b>{{ inventory_hostname }}</b></p>
+    <p>Current date and time is: <b>{{ ansible_date_time.date }} {{ ansible_date_time.time }}</b></p>
+    <p>Server IP address is: <b>{{ ansible_host }}</b></p>
 </body>
 </html>
